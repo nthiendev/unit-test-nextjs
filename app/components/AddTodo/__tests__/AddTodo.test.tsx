@@ -14,5 +14,15 @@ describe("AddTodo", () => {
 
       expect(input).toBeInTheDocument();
     });
+
+    it("should render a disabled button", () => {
+      render(<AddTodo setTodos={mockSetTodos} />);
+
+      const button = screen.getByRole("button", {
+        name: "Submit",
+      });
+
+      expect(button).toBeDisabled();
+    });
   });
 });
